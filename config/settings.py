@@ -116,7 +116,9 @@ def get_llm(provider: str | None = None, temperature: float = 0.1) -> BaseChatMo
 
 def get_embedding_model():
     """返回本地 Embedding 模型（HuggingFace，中文友好）"""
-    from langchain_community.embeddings import HuggingFaceEmbeddings
+    # from langchain_community.embeddings import HuggingFaceEmbeddings
+    from langchain_huggingface import HuggingFaceEmbeddings
+
     return HuggingFaceEmbeddings(
         model_name=settings.EMBEDDING_MODEL,
         model_kwargs={"device": "cpu"},
